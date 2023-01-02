@@ -10,7 +10,6 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 app.use('/forms', formRoutes)
-dotenv.config();
 
 try {
     await db.authenticate()
