@@ -1,6 +1,5 @@
 import express from "express"
 import cors from 'cors'
-import * as dotenv from 'dotenv'
 
 //importacion de la base de datos
 import db from "./database/db.js"
