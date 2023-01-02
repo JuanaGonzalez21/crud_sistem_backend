@@ -1,7 +1,6 @@
 // conexion base de datos
 
 import db from "../database/db.js";
-
 import { DataTypes  } from "sequelize";
 
 const FormModel = db.define('datos_agente',{
@@ -37,6 +36,6 @@ const FormModel = db.define('datos_agente',{
 });
 
 // La linea de abajo crear y actualiza la tabla -- NO BORRAR
-FormModel.sync();
+FormModel.sync({ alter: true});
 
 export default FormModel;
