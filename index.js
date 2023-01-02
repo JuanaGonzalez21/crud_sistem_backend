@@ -1,16 +1,17 @@
 import express from "express"
 import cors from 'cors'
+import * as dotenv from 'dotenv'
 
 //importacion de la base de datos
 import db from "./database/db.js"
 import formRoutes from './routes/routes.js'
 
-//var port = process.env.PORT || 8000;
 const app = express()
 
-app.use( cors())
+app.use(cors())
 app.use(express.json())
 app.use('/forms', formRoutes)
+dotenv.config();
 
 try {
     await db.authenticate()
@@ -19,11 +20,11 @@ try {
     console.log(`Error: ${error}`)
 }
 
-app.get('/',(req, res)=> {
+app.get('/', (req, res) => {
     res.send('Hola Mundo')
 })
 
 const port = process.env.PORT || 8001
-app.listen(port, ()=>{
+app.listen(port, () => {
     console.log('Server UP running in', port)
 })
